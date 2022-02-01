@@ -3,12 +3,12 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "ami_id" {
+variable "ami" {
   type    = string
   default = ""
 }
 
-variable "vpc_id" {
+variable "availability_zone" {
   type    = string
   default = ""
 }
@@ -28,7 +28,7 @@ variable "instance_type" {
   default = "t2-micro"
 }
 
-variable "ebs_volume" {
+variable "volume_id" {
   type    = string
   default = ""
 }

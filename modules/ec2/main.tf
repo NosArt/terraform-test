@@ -13,11 +13,18 @@ provider "aws" {
 }
 
 resource "aws_instance" "this" {
-  ami           = var.ami_id
-  vpc_id        = var.vpc_id
-  subnet_id     = var.subnet_id
-  sg_id         = var.sg_id
-  instance_type = var.instance_type
-  ebs_volume    = var.ebs_volume
+  ami               = var.ami
+  availability_zone = var.availability_zone
+  instance_type     = var.instance_type
+#   vpc_id        = var.vpc_id
+#   subnet_id     = var.subnet_id
+#   sg_id         = var.sg_id
+#   ebs_volume    = var.ebs_volume
+}
+
+resource "aws_volume_attachment" "this" {
+  device_name       = "/dev/sdh"
+  volume_id         = var.volume_id
+  instance_id       = aws_instance.this.id
 }
 
